@@ -63,10 +63,10 @@ class MainApp(QMainWindow):
         logo_label = QLabel()
         logo_pixmap = QPixmap("robo_dexo_logo.webp").scaled(150, 150, Qt.KeepAspectRatio, Qt.SmoothTransformation)
         logo_pixmap = self.add_blur_border(logo_pixmap, 15)
+        layout.addSpacing(10) 
         logo_label.setPixmap(logo_pixmap)
         logo_label.setAlignment(Qt.AlignCenter)
         layout.addWidget(logo_label)
-        layout.addSpacing(10)  # Espacio debajo del logo
 
     def init_login_screen(self):
         self.login_screen = QWidget()
