@@ -14,10 +14,39 @@ class MainApp(QMainWindow):
         naranja = QColor("#FFA726")
         palette = QPalette()
         palette.setColor(QPalette.Window, fondo_logo)
-        palette.setColor(QPalette.Button, naranja)
-        palette.setColor(QPalette.ButtonText, Qt.white)
-        palette.setColor(QPalette.WindowText, Qt.white)
         self.setPalette(palette)
+
+        # Estilo Moderno con QSS
+        self.setStyleSheet("""
+            QMainWindow { background-color: #2F3548; }
+            QLabel#titleLabel {
+                color: white;
+                font-size: 24px;
+                font-weight: bold;
+                padding: 5px;
+                border-radius: 10px;
+            }
+            QPushButton {
+                background-color: #FFA726;
+                color: white;
+                font-weight: bold;
+                padding: 8px;
+                border-radius: 12px;
+            }
+            QPushButton:hover {
+                background-color: #FFB84D;
+            }
+            QLineEdit {
+                background-color: #3E475A;
+                color: white;
+                padding: 8px;
+                border: 2px solid #FFA726;
+                border-radius: 12px;
+            }
+            QLineEdit:focus {
+                border: 2px solid #FFB84D;
+            }
+        """)
 
         # Configuración del widget principal
         self.stacked_widget = QStackedWidget()
@@ -48,8 +77,8 @@ class MainApp(QMainWindow):
 
         # Título
         title = QLabel("Inicio de Sesión")
+        title.setObjectName("titleLabel")
         title.setAlignment(Qt.AlignCenter)
-        title.setStyleSheet("color: white; font-size: 24px; font-weight: bold;")
         layout.addWidget(title)
         layout.addSpacing(10)  # Espacio debajo del título
 
@@ -67,7 +96,6 @@ class MainApp(QMainWindow):
 
         # Botón de inicio de sesión
         login_button = QPushButton("Iniciar Sesión")
-        login_button.setStyleSheet("background-color: #FFA726; color: white; font-weight: bold;")
         login_button.clicked.connect(self.handle_login)
         layout.addWidget(login_button)
         
@@ -98,23 +126,20 @@ class MainApp(QMainWindow):
         self.add_logo_with_spacing(layout)
 
         title = QLabel("Bienvenido, Pintor")
+        title.setObjectName("titleLabel")
         title.setAlignment(Qt.AlignCenter)
-        title.setStyleSheet("color: white; font-size: 24px; font-weight: bold;")
         layout.addWidget(title)
         layout.addSpacing(10)
 
         upload_button = QPushButton("Subir Pintura")
-        upload_button.setStyleSheet("background-color: #FFA726; color: white; font-weight: bold;")
         layout.addWidget(upload_button)
         layout.addSpacing(10)
 
         encrypt_button = QPushButton("Cifrar Pintura")
-        encrypt_button.setStyleSheet("background-color: #FFA726; color: white; font-weight: bold;")
         layout.addWidget(encrypt_button)
         layout.addSpacing(10)
 
         logout_button = QPushButton("Salir de la Sesión")
-        logout_button.setStyleSheet("background-color: #FFA726; color: white; font-weight: bold;")
         logout_button.clicked.connect(self.logout)
         layout.addWidget(logout_button)
 
@@ -129,23 +154,20 @@ class MainApp(QMainWindow):
         self.add_logo_with_spacing(layout)
 
         title = QLabel("Bienvenido, Jurado")
+        title.setObjectName("titleLabel")
         title.setAlignment(Qt.AlignCenter)
-        title.setStyleSheet("color: white; font-size: 24px; font-weight: bold;")
         layout.addWidget(title)
         layout.addSpacing(10)
 
         view_paintings_button = QPushButton("Ver Pinturas Cifradas")
-        view_paintings_button.setStyleSheet("background-color: #FFA726; color: white; font-weight: bold;")
         layout.addWidget(view_paintings_button)
         layout.addSpacing(10)
 
         evaluate_button = QPushButton("Evaluar Pintura")
-        evaluate_button.setStyleSheet("background-color: #FFA726; color: white; font-weight: bold;")
         layout.addWidget(evaluate_button)
         layout.addSpacing(10)
 
         logout_button = QPushButton("Salir de la Sesión")
-        logout_button.setStyleSheet("background-color: #FFA726; color: white; font-weight: bold;")
         logout_button.clicked.connect(self.logout)
         layout.addWidget(logout_button)
 
@@ -160,23 +182,20 @@ class MainApp(QMainWindow):
         self.add_logo_with_spacing(layout)
 
         title = QLabel("Bienvenido, Presidente del Jurado")
+        title.setObjectName("titleLabel")
         title.setAlignment(Qt.AlignCenter)
-        title.setStyleSheet("color: white; font-size: 24px; font-weight: bold;")
         layout.addWidget(title)
         layout.addSpacing(10)
 
         validate_button = QPushButton("Validar Evaluación (Firma Ciega)")
-        validate_button.setStyleSheet("background-color: #FFA726; color: white; font-weight: bold;")
         layout.addWidget(validate_button)
         layout.addSpacing(10)
 
         view_results_button = QPushButton("Ver Resultados")
-        view_results_button.setStyleSheet("background-color: #FFA726; color: white; font-weight: bold;")
         layout.addWidget(view_results_button)
         layout.addSpacing(10)
 
         logout_button = QPushButton("Salir de la Sesión")
-        logout_button.setStyleSheet("background-color: #FFA726; color: white; font-weight: bold;")
         logout_button.clicked.connect(self.logout)
         layout.addWidget(logout_button)
 
